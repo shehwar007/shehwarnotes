@@ -27,10 +27,19 @@ sudo systemctl status apache2
 
 nano /etc/apache2/sites-available/your-site.conf
 <VirtualHost *:80>
+
+DAY 2222222222
        ServerAdmin webmaster@your-site.com
        ServerName your-site.com
        ServerAlias www.your-site.com
        DocumentRoot /var/www/your-site
        ErrorLog ${APACHE_LOG_DIR}/error.log
        CustomLog ${APACHE_LOG_DIR}/access.log combined
+
+
+
+
+
+
+       
    </VirtualHost>
