@@ -101,4 +101,80 @@ lrwxrwxrwx 1 root root 35 Mar 23 19:06 000-default.conf -> ../sites-available/00
 lrwxrwxrwx 1 root root 34 Mar 25 01:28 ourbrandtv.conf -> ../sites-available/ourbrandtv.conf
 \\\\\\\\\\\\//////////////////////////////////////////////////////////////
 
+
+
+
+
+
+
+i! I'm here to answer your questions. How can I help you?
+
+6:52 AM
+i want to add laravel app with db for testing purpose
+6:52 AM
+profile
+Sure, to set up a Laravel app with a database on your VPS, you can follow these general steps:
+
+Install PHP and Composer:
+Update your package list:
+Copy
+sudo apt update
+Install PHP and required extensions:
+Copy
+sudo apt install php php-cli php-mbstring unzip
+Install Composer:
+Copy
+sudo php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+     sudo php composer-setup.php --install-dir=/usr/local/bin --filename=composer
+     sudo php -r "unlink('composer-setup.php');"
+Install and configure MySQL:
+Install MySQL server:
+Copy
+sudo apt install mysql-server
+Secure the installation and set a password for the root user:
+Copy
+sudo mysql_secure_installation
+Create a new database and user for your Laravel app:
+Log in to MySQL:
+Copy
+sudo mysql
+Create a new database and user:
+Copy
+CREATE DATABASE laravel_db;
+     CREATE USER 'laravel_user'@'localhost' IDENTIFIED BY 'your_password';
+     GRANT ALL ON laravel_db.* TO 'laravel_user'@'localhost';
+     FLUSH PRIVILEGES;
+Install Laravel:
+Navigate to your web directory:
+Copy
+cd /var/www/html
+Install Laravel using Composer:
+Copy
+composer create-project --prefer-dist laravel/laravel your_project_name
+Configure Laravel to use the database:
+Update the database connection details in the .env file within your Laravel project directory:
+Copy
+DB_CONNECTION=mysql
+     DB_HOST=127.0.0.1
+     DB_PORT=3306
+     DB_DATABASE=laravel_db
+     DB_USERNAME=laravel_user
+     DB_PASSWORD=your_password
+Set up your web server to serve the Laravel app:
+If you're using Apache, create a new virtual host configuration file for your Laravel app. If you're using Nginx, configure a new server block.
+Set appropriate file permissions:
+Ensure that your web server has the necessary permissions to read and write to the Laravel project directories.
+Test your Laravel app:
+Access your Laravel app through a web browser and verify that it's working correctly.
+Remember to replace laravel_db, laravel_user, and your_password with the actual database name, username, and password you want to use.
+
+If you encounter any issues or need further assistance with any of these steps, feel free to ask!
+
+///////////////////////////////////////////////////////////////////////
+
+
+
+
+
 root@srv497201:/var/www/ourbrandtv# root@srv497201:/var/www/ourbrandtv# ls
+//
